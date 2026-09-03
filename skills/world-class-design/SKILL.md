@@ -72,19 +72,42 @@ Read whatever they point at before Stage 1. Reusing a real component beats inven
 near-identical one, and a design that ignores an existing system creates work for whoever has to
 build it.
 
-**2. Do they have a design direction in mind?**
+**2. Is there anything they admire that I should work from?**
 
-> Do you have an aesthetic in mind, even a rough one? Something like "industrial control panel"
-> or "field notebook" is enough. If you do, I will use it as an anchor across all four
-> directions. If not, I will explore and bring you options.
+Ask this properly, because it is the highest-value answer you can get:
 
-An anchor from the user plus seeded variance beats either alone. If they name one, every scout
-gets it and the seed strings vary the execution underneath. If they do not, do not push. Stage 1
-exists to find one.
+> Is there anything you want me to design from? Any of these help, and more than one is better:
+>
+> - a link to a site or product whose design you admire
+> - screenshots of something you like the look of
+> - a product whose design language you want this to feel like ("make it feel like Linear")
+> - a rough aesthetic in words, even something odd like "industrial control panel" or
+>   "field notebook"
+>
+> If you have nothing in mind, that is fine, I will explore and bring you options.
 
-**3. Mobbin.**
+A real reference beats anything the discovery stage can invent, because it is a real design
+language with real decisions in it and you can check yourself against it. Seed strings exist to
+solve the blank-page problem; a reference means there is no blank page.
 
-If Mobbin is connected, say what you will do with it. If it is not:
+If they give you one, **extract it before designing**: real hex values, the real type scale, the
+shape language, the spatial rhythm, the signature element, and what the reference refuses to do.
+Write it to `design-language.md` and pass that verbatim to every agent. An impression reaching
+the implementer instead of real values is how a good reference turns back into slop.
+
+Then ask which mode you are in if it is not obvious: **match** it (their own product, a design
+system, a company they are pitching) or take it as **inspiration** and diverge on structure. It
+changes everything downstream. Full protocol: `references/inspiration.md`
+
+If they name only a rough aesthetic with no reference, use it as an anchor across all four
+scouts and let the seed strings vary the execution underneath.
+
+**3. Mobbin, but only if it is not already connected.**
+
+If Mobbin is connected, do not ask anything. Say in one line what you will use it for and move
+on. Nobody wants to answer a question about a thing they already set up.
+
+If it is not connected, ask once:
 
 > Mobbin is not connected. Without it the critic judges against an imagined quality bar, which
 > works but drifts between rounds. With it, I rank our design against 4 real shipped screens for
@@ -92,8 +115,10 @@ If Mobbin is connected, say what you will do with it. If it is not:
 > `claude mcp add mobbin --scope user --transport http https://api.mobbin.com/mcp`, then `/mcp`
 > to authenticate. Want to, or shall I go ahead without it?
 
-Ask once. Take no for an answer, do not ask again this session, and do not keep mentioning it.
-Everything works without it. Details: `references/mobbin.md`
+Take no for an answer, do not ask again this session, and do not keep mentioning it. Everything
+works without it. If the user gave you their own reference in question 2, that reference is a
+better ranking set than anything Mobbin returns, so lean on it and let Mobbin go.
+Details: `references/mobbin.md`
 
 ### Frame the work
 
@@ -110,6 +135,14 @@ as the brief. Do not run a discovery they did not ask for.
 ## Stage 1: Discover: explore the space of possibilities
 
 Goal: get well past the purple-gradient default before committing to anything.
+
+**First, check whether discovery is the right tool at all.** If the user gave you a reference in
+Stage 0 and wants to match it, skip this stage entirely and go to Stage 2 with the extracted
+design language as the brief. Four scouts inventing four palettes when the user already told you
+the palette is wasted work. If the reference is inspiration rather than a target, run the scouts
+with the extraction as a fixed anchor and vary composition and the signature move underneath it.
+
+Seeded exploration below is for the genuine blank page.
 
 **If Mobbin is connected, ground the scouts first.** Search the pattern
 (`search_flows` for a journey, `search_screens` for one screen, `search_sections` for a web
@@ -181,7 +214,10 @@ Rules:
   our yoga app in sage green" leaks the brief and defeats the point. Use the **same query every
   round**, or you are comparing scores against different baselines.
 
-  Without Mobbin, any 3-5 screenshots of work at the bar will do. Without either, the critic
+  If the user gave you a reference in Stage 0, that is the best ranking set available, better
+  than anything a library returns, because it is the actual bar in their head. Use it first.
+
+  Without either, any 3-5 screenshots of work at the bar will do. Without either, the critic
   falls back to the imagined-studio form, which works but drifts.
 
   References are a baseline, never a target. A design that could be swapped into the reference
@@ -251,4 +287,5 @@ critic's final score and its remaining nits, and a plain list of what still need
 - `references/direction-ideation.md`: finding an anchor with the user's taste in the loop
 - `references/house-rules.md`: the per-project block, where it comes from, who gets which parts
 - `references/asset-generation.md`: image, video, matting, keys
+- `references/inspiration.md`: extracting a design language from a reference the user gives you
 - `references/mobbin.md`: the optional reference library, what it changes, how to offer it

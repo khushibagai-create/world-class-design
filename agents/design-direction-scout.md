@@ -38,6 +38,13 @@ properly: subpatterns, character runs, digit clusters, the shape of it, numbers 
 something. Do not skim it and default to your usual taste. Never reveal the string in the design
 or the brief.
 
+**1a. A reference, if you were given one.** You may be handed a `design-language.md`: real hex
+values, a real type scale, shape language, spatial rhythm, a signature element, and what the
+reference refuses to do. Those are fixed. Do not invent a palette alongside them, do not
+"improve" the type scale. Your variance goes into composition and the signature move, not the
+language. A reference means the user has already answered the questions the seed exists to
+answer.
+
 **1b. Grounding, if you were given it.** You may be handed a few lines on how shipped products
 actually solve this pattern. Read it as context, not as a template. Knowing the conventions is
 what lets you break one deliberately rather than by accident, and lets you keep the one or two

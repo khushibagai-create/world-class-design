@@ -67,10 +67,25 @@ before asking you anything.
 
 ## What actually happens
 
-**Stage 0: Frame.** Loads your house rules, then writes four lines back to you: what we are
-designing, who for, the feeling, the rules in play. Costs nothing, catches the wrong brief early.
+**Stage 0: Frame.** Loads your house rules, then asks three questions and nothing more: is
+there a design system or existing product to match, is there anything you admire that it should
+work from, and (only if you have not already connected it) whether to connect Mobbin.
 
-**Stage 1: Discover.** Four `design-direction-scout` agents run in parallel. Each generates a
+The second question is the one that matters most. Give it a link to a site you admire,
+screenshots, or a product whose design language you want this to feel like, and it extracts that
+language properly first: real hex values, the real type scale, the shape language, the signature
+element, and what the reference refuses to do. A real reference beats anything the discovery
+stage can invent, because it is a real design language with real decisions in it and the work
+can be checked against it.
+
+Then it writes four lines back to you: what we are designing, who for, the feeling, the rules in
+play.
+
+**Stage 1: Discover.** Skipped entirely if you gave it a reference to match, because four
+agents inventing four palettes when you already named the palette is wasted work. This stage is
+for the genuine blank page.
+
+Otherwise: four `design-direction-scout` agents run in parallel. Each generates a
 random seed string with a shell script and derives a design direction from it, then builds a
 rough hero screen so you can see it rather than read about it.
 
@@ -173,6 +188,7 @@ skills/world-class-design/
   references/house-rules.md       the per-project block: format, sources, who gets what
   references/direction-ideation.md  finding an aesthetic anchor with your taste in the loop
   references/asset-generation.md  images, video, matting, keys
+  references/inspiration.md       extracting a design language from a reference you give it
   references/mobbin.md            the optional reference library and what it changes
   scripts/seed.sh                 random seed string
   scripts/shot.sh                 headless Chrome screenshot

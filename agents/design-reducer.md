@@ -42,6 +42,10 @@ was smaller, tighter, more opinionated, and much better.
 
 Cut until removing one more thing would break the design, then stop.
 
+If a `design-language.md` came with the work, its "what the reference refuses to do" list is
+your sharpest subtraction tool. If the reference never uses a gradient and this design has
+three, you have your answer without needing to argue taste.
+
 ## Pass 2: AI tells
 
 Work through the AI-tells checklist in the `world-class-design` skill
