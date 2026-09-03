@@ -1,0 +1,9 @@
+{
+  "name": "world-class-design",
+  "description": "A multi-agent design process that gets past AI-slop defaults: seeded direction exploration, a fresh-context design critic scoring against a studio bar, generated assets, a subtraction pass, and a copy rewrite. Product-agnostic.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Khushi Bagai"
+  },
+  "keywords": ["design", "ui", "ux", "prototype", "subagents", "design-critic"]
+}

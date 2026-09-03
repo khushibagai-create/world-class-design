@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "world-class-design",
+  "description": "A multi-agent design process for Claude Code",
+  "owner": {
+    "name": "Khushi Bagai"
+  },
+  "plugins": [
+    {
+      "name": "world-class-design",
+      "description": "A multi-agent design process that gets past AI-slop defaults: seeded direction exploration, a fresh-context design critic scoring against a studio bar, generated assets, a subtraction pass, and a copy rewrite. Product-agnostic.",
+      "category": "design",
+      "source": "./"
+    }
+  ]
+}
