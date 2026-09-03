@@ -19,10 +19,18 @@ judged by an agent that never sees the code.
 
 ## Install
 
+Two commands, and the first one is not optional:
+
 ```
 /plugin marketplace add khushibagai-create/world-class-design
 /plugin install world-class-design
 ```
+
+If you see `Plugin "world-class-design" not found in any marketplace`, you skipped the first
+line. `install` only searches marketplaces you have already added.
+
+Costs about 826 tokens per session once installed. The stage prompts load only when the skill
+actually fires.
 
 Or copy it in by hand:
 
@@ -117,6 +125,32 @@ Break these and you get an expensive version of what you already had.
 There is a convergence check after round two and a five-round cap, so a critic loop cannot burn
 tokens forever.
 
+## Optional: Mobbin
+
+Everything works without it. Here is what it changes, so you can decide.
+
+The critic loop is the part of this process that does the most work, and its weak point is that
+it judges against a quality bar it imagines. That bar drifts between rounds, so the scores
+wobble. The fix is to give the critic a bar it can see: 4 real shipped screens for your pattern,
+with yours as the fifth, ranked by polish. Same idea, far more stable scores.
+
+[Mobbin](https://mobbin.com) is a searchable library of real screens from shipped products. With
+it connected, the critic pulls its own four references every round, matched to your pattern
+rather than to whatever the model happens to remember.
+
+```bash
+claude mcp add mobbin --scope user --transport http https://api.mobbin.com/mcp
+```
+
+Then `/mcp`, select mobbin, authenticate. Auth does not persist reliably between sessions, so
+expect to re-run it.
+
+It also grounds the discovery stage: search the pattern first, see how shipped products solve
+it, then design. The scouts still have to be bold, but breaking a convention becomes a decision
+rather than an accident.
+
+The skill offers this once at Stage 0 and takes no for an answer.
+
 ## Optional API keys
 
 Both stages degrade gracefully. If a key is missing the agent says so once and continues with
@@ -139,6 +173,7 @@ skills/world-class-design/
   references/house-rules.md       the per-project block: format, sources, who gets what
   references/direction-ideation.md  finding an aesthetic anchor with your taste in the loop
   references/asset-generation.md  images, video, matting, keys
+  references/mobbin.md            the optional reference library and what it changes
   scripts/seed.sh                 random seed string
   scripts/shot.sh                 headless Chrome screenshot
 agents/

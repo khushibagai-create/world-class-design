@@ -39,14 +39,29 @@ Output format:
 
 ## Stronger variant: ranking
 
-More objective, and use it whenever you have reference images. Replace step 1-4 above with:
+More objective, and the form to use whenever you can get reference images. Replace steps 1-4
+above with:
 
 > Here are 5 designs. Rank them from most to least polished and tasteful. For each, say what
 > puts it where it is. Then, for the one labelled OURS, list what would have to change for it to
 > move up one place.
 
-Four should be professional work at the bar you are aiming for, one is the current design.
-Do not tell the critic which is which beyond the OURS label.
+Four should be professional work at the bar you are aiming for, one is the current design. Do
+not tell the critic which is which beyond the OURS label.
+
+With Mobbin connected, the critic fetches its own four. Give it a pattern query and nothing
+else:
+
+> Fetch 4 reference screens from Mobbin for: "<neutral pattern query>". Then rank those four and
+> the attached screenshot together, most to least polished. Say what puts each where it is.
+> Then say what would have to change for the attached design to move up one place.
+
+The query must be neutral. "habit tracking daily check-in screen" is fine. "warm minimal
+check-in screen for our yoga app, sage green palette" hands the critic the brief and destroys
+the blindness the loop depends on.
+
+Use the same query every round. A score measured against a different reference set each round
+is not a trend, it is noise.
 
 ## Running the loop
 

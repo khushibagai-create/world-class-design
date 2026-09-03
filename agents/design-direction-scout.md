@@ -38,6 +38,11 @@ properly: subpatterns, character runs, digit clusters, the shape of it, numbers 
 something. Do not skim it and default to your usual taste. Never reveal the string in the design
 or the brief.
 
+**1b. Grounding, if you were given it.** You may be handed a few lines on how shipped products
+actually solve this pattern. Read it as context, not as a template. Knowing the conventions is
+what lets you break one deliberately rather than by accident, and lets you keep the one or two
+that exist because they genuinely work. Do not let it pull you toward the average.
+
 **2. Derive a direction from the seed.** Colour system, layout logic, typography, texture and
 surface, motion, and the one weird choice that makes it memorable. If you have also been given
 an aesthetic anchor from the user, that anchor is fixed and the seed varies the execution

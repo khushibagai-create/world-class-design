@@ -58,9 +58,46 @@ anything the product must never say or imply.
 
 Format and a worked example: `references/house-rules.md`
 
+### Ask the three questions
+
+Ask these before spawning anything. Only these three. Anything else you can work out yourself or
+raise when it actually matters.
+
+**1. Is there a design system or an existing product to match?**
+
+> Is there a design system, component library, or existing screens I should match? Point me at
+> it and I will design inside it. If this is greenfield, say so and I will explore freely.
+
+Read whatever they point at before Stage 1. Reusing a real component beats inventing a
+near-identical one, and a design that ignores an existing system creates work for whoever has to
+build it.
+
+**2. Do they have a design direction in mind?**
+
+> Do you have an aesthetic in mind, even a rough one? Something like "industrial control panel"
+> or "field notebook" is enough. If you do, I will use it as an anchor across all four
+> directions. If not, I will explore and bring you options.
+
+An anchor from the user plus seeded variance beats either alone. If they name one, every scout
+gets it and the seed strings vary the execution underneath. If they do not, do not push. Stage 1
+exists to find one.
+
+**3. Mobbin.**
+
+If Mobbin is connected, say what you will do with it. If it is not:
+
+> Mobbin is not connected. Without it the critic judges against an imagined quality bar, which
+> works but drifts between rounds. With it, I rank our design against 4 real shipped screens for
+> this pattern, and the scores get much more reliable. Connecting takes about a minute:
+> `claude mcp add mobbin --scope user --transport http https://api.mobbin.com/mcp`, then `/mcp`
+> to authenticate. Want to, or shall I go ahead without it?
+
+Ask once. Take no for an answer, do not ask again this session, and do not keep mentioning it.
+Everything works without it. Details: `references/mobbin.md`
+
 ### Frame the work
 
-Then write four lines and show them to the user before spending a token on agents:
+Then write four lines back and get a nod before spending a token on agents:
 
 - **What** we are designing (screen, flow, page, whole product)
 - **Who** it is for, and the one constraint that audience imposes
@@ -73,6 +110,14 @@ as the brief. Do not run a discovery they did not ask for.
 ## Stage 1: Discover: explore the space of possibilities
 
 Goal: get well past the purple-gradient default before committing to anything.
+
+**If Mobbin is connected, ground the scouts first.** Search the pattern
+(`search_flows` for a journey, `search_screens` for one screen, `search_sections` for a web
+section), look at the images, and write 3-5 lines on how shipped products actually solve this.
+Pass that to every scout.
+
+This is grounding, not a moodboard. The scouts still have to be bold. What they gain is knowing
+which conventions exist, so breaking one becomes a decision instead of an accident.
 
 **Run 4 `design-direction-scout` agents in parallel, in one message.** Each one:
 
@@ -127,10 +172,20 @@ Rules:
   10% of output tokens.
 - **Check convergence after round 2.** If the score has not moved at least a point, stop and
   bring it to the user. A loop that cannot converge burns tokens forever.
-- If you have 3-5 reference screenshots of work at the quality bar, pass them to the critic as a
-  ranking set (ours plus theirs, ranked by polish). That is the most objective form of this
-  loop and the scores get far more stable. Treat references as a baseline, never a target to
-  copy.
+- **Use the ranking form when you can.** Instead of asking the critic to imagine a studio bar,
+  give it one to look at: 4 professional examples plus ours, ranked by polish and taste. This is
+  the most objective version of the loop and the scores stop drifting between rounds.
+
+  With Mobbin connected, the critic fetches those 4 itself. Give it a **neutral pattern query**
+  and nothing else: "habit tracking daily check-in screen" is fine, "warm minimal check-in for
+  our yoga app in sage green" leaks the brief and defeats the point. Use the **same query every
+  round**, or you are comparing scores against different baselines.
+
+  Without Mobbin, any 3-5 screenshots of work at the bar will do. Without either, the critic
+  falls back to the imagined-studio form, which works but drifts.
+
+  References are a baseline, never a target. A design that could be swapped into the reference
+  set has cleared the bar and lost the point.
 
 ### 2c. Enrich with generated assets
 
@@ -156,6 +211,10 @@ the platform's native ones.
 
 Same agent, second pass, against `references/ai-tells.md`. Go tell by tell, try the alternative,
 keep it only if it is genuinely better. Intentional, not a blanket ban.
+
+When you cannot tell whether something is an AI tell or a genuine convention of the category,
+and Mobbin is connected, search it. If most shipped products in the category do it, it is a
+convention and it stays.
 
 ### 3c. Rewrite the copy
 
@@ -192,3 +251,4 @@ critic's final score and its remaining nits, and a plain list of what still need
 - `references/direction-ideation.md`: finding an anchor with the user's taste in the loop
 - `references/house-rules.md`: the per-project block, where it comes from, who gets which parts
 - `references/asset-generation.md`: image, video, matting, keys
+- `references/mobbin.md`: the optional reference library, what it changes, how to offer it
